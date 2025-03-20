@@ -72,12 +72,22 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-import dj_database_url 
 import os
+import dj_database_url
+
+print("DATABASE_URL:", os.getenv("DATABASE_URL"))  # เพิ่มบรรทัดนี้เพื่อเช็คค่าจริงๆที่อ่านมาได้
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'LumaSphere',  # Database name from Supabase
+        'USER': 'postgres',  # Default user for Supabase
+        'PASSWORD': 'your_database_password',  # Replace with actual password from Supabase
+        'HOST': 'db.iypqtdzdofthaltggccr.supabase.co',  # Supabase database host
+        'PORT': '5432',  # PostgreSQL default port
+    }
 }
+
 
 
 # Password validation
