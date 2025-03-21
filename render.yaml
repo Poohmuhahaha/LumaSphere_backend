@@ -12,8 +12,11 @@ services:
         sync: false
       - key: DEBUG
         value: false
+        fromDatabase:
+          name: luma-db
+          property: connectionString    
       - key: DATABASE_URL
-        value: postgres://postgres:Pooh9997748@db.iypqtdzdofthaltggccr.supabase.co:5432/LumaSphere
+        value: postgresql://luma_db_user:QTFYgECy0qgn9GB5cIf1k45y1qgHlOlk@dpg-cveav2fnoe9s73emq3s0-a/luma_db
       - key: ALLOWED_HOSTS
         value: lumasphere-backend.onrender.com,localhost,127.0.0.1
       - key: DJANGO_SECRET_KEY
