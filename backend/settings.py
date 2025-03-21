@@ -14,10 +14,13 @@ SECRET_KEY = 'django-insecure--+s!9ju2227h3jla!ge4xy!oxl=+_xu%6zn#+y2)!cn5$@hgu#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-import os
+ALLOWED_HOSTS = [
+    'luma-bd.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
-    
+
 APPEND_SLASH = True  # ✅ Default value
 
 
