@@ -1,12 +1,13 @@
-from django.urls import path, include
-from django.contrib import admin
-from .views import home, articles
-from . import views
+from django.urls import include, path
+from rest_framework import routers
+from articles_hub.views import ArticleViewSet, CategoryViewSet, TagViewSet, AuthorViewSet
 
-
+router = routers.DefaultRouter()
+router.register(r'articles', ArticleViewSet)
+router.register(r'categories', CategoryViewSet)
+router.register(r'tags', TagViewSet)
+router.register(r'authors', AuthorViewSet)
 
 urlpatterns = [
-    path('', home, name='home'),
-    path('admin/', admin.site.urls),
-    path("articles/", views.articles, name="articles"),
+    path('', include(router.urls)),
 ]
