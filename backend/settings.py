@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'api',
     'knowledge_hub',
+    'articles_hub',
 ]
 
 MIDDLEWARE = [
@@ -85,8 +86,8 @@ print("DATABASE_URL:", os.getenv("DATABASE_URL"))  # ✅ Debug เช็คค�
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv("DATABASE_URL"),
-        conn_max_age=600,  # คงการเชื่อมต่อไว้ให้เสถียรขึ้น
+        default='sqlite:///db.sqlite3',
+        conn_max_age=600,
     )
 }
 
